@@ -1,0 +1,510 @@
+1----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite a venda média mensal do produto: ");
+        int vendaMedia = int.Parse(Console.ReadLine());
+
+        Console.Write("Digite o preço atual do produto: R$ ");
+        double precoAtual = double.Parse(Console.ReadLine());
+
+        double precoReajustado = CalcularReajuste(vendaMedia, precoAtual);
+        Console.WriteLine($"O novo preço do produto é: R$ {precoReajustado:F2}");
+    }
+
+    static double CalcularReajuste(int vendaMedia, double precoAtual)
+    {
+        if (vendaMedia < 500 && precoAtual < 30.00)
+        {
+            return precoAtual * 1.10; 
+        }
+        else if (vendaMedia >= 500 && precoAtual >= 30.00)
+        {
+            return precoAtual * 0.80; 
+        }
+        return precoAtual; 
+    }
+}
+
+2----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite a venda média mensal do produto: ");
+        int vendaMedia = int.Parse(Console.ReadLine());
+
+        Console.Write("Digite o preço atual do produto: R$ ");
+        double precoAtual = double.Parse(Console.ReadLine());
+
+        double precoReajustado = CalcularReajuste(vendaMedia, precoAtual);
+        Console.WriteLine($"O novo preço do produto é: R$ {precoReajustado:F2}");
+
+        Console.Write("Digite sua altura (em metros): ");
+        double altura = double.Parse(Console.ReadLine());
+
+        Console.Write("Digite seu sexo (M para masculino, F para feminino): ");
+        char sexo = char.ToUpper(Console.ReadKey().KeyChar);
+        Console.WriteLine();
+
+        double pesoIdeal = CalcularPesoIdeal(altura, sexo);
+        Console.WriteLine($"Seu peso ideal é: {pesoIdeal:F2} kg");
+    }
+
+    static double CalcularReajuste(int vendaMedia, double precoAtual)
+    {
+        if (vendaMedia < 500 && precoAtual < 30.00)
+        {
+            return precoAtual * 1.10; 
+        }
+        else if (vendaMedia >= 500 && precoAtual >= 30.00)
+        {
+            return precoAtual * 0.80; 
+        }
+        return precoAtual; 
+    }
+
+    static double CalcularPesoIdeal(double altura, char sexo)
+    {
+        if (sexo == 'M')
+        {
+            return (72.7 * altura) - 58;
+        }
+        else if (sexo == 'F')
+        {
+            return (62.1 * altura) - 44.7;
+        }
+        else
+        {
+            Console.WriteLine("Sexo inválido!");
+            return 0;
+        }
+    }
+}
+
+3----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite a venda média mensal do produto: ");
+        int vendaMedia = int.Parse(Console.ReadLine());
+
+        Console.Write("Digite o preço atual do produto: R$ ");
+        double precoAtual = double.Parse(Console.ReadLine());
+
+        double precoReajustado = CalcularReajuste(vendaMedia, precoAtual);
+        Console.WriteLine($"O novo preço do produto é: R$ {precoReajustado:F2}");
+
+        Console.Write("Digite sua altura (em metros): ");
+        double altura = double.Parse(Console.ReadLine());
+
+        Console.Write("Digite seu sexo (M para masculino, F para feminino): ");
+        char sexo = char.ToUpper(Console.ReadKey().KeyChar);
+        Console.WriteLine();
+
+        double pesoIdeal = CalcularPesoIdeal(altura, sexo);
+        Console.WriteLine($"Seu peso ideal é: {pesoIdeal:F2} kg");
+
+        Console.Write("Digite um número de 1 a 7 para saber o dia da semana: ");
+        int numeroDia = int.Parse(Console.ReadLine());
+        Console.WriteLine($"O dia correspondente é: {ObterDiaSemana(numeroDia)}");
+    }
+
+    static double CalcularReajuste(int vendaMedia, double precoAtual)
+    {
+        if (vendaMedia < 500 && precoAtual < 30.00)
+        {
+            return precoAtual * 1.10; 
+        }
+        else if (vendaMedia >= 500 && precoAtual >= 30.00)
+        {
+            return precoAtual * 0.80; 
+        }
+        return precoAtual; 
+    }
+
+    static double CalcularPesoIdeal(double altura, char sexo)
+    {
+        if (sexo == 'M')
+        {
+            return (72.7 * altura) - 58;
+        }
+        else if (sexo == 'F')
+        {
+            return (62.1 * altura) - 44.7;
+        }
+        else
+        {
+            Console.WriteLine("Sexo inválido!");
+            return 0;
+        }
+    }
+
+    static string ObterDiaSemana(int numero)
+    {
+        switch (numero)
+        {
+            case 1: return "Domingo";
+            case 2: return "Segunda-feira";
+            case 3: return "Terça-feira";
+            case 4: return "Quarta-feira";
+            case 5: return "Quinta-feira";
+            case 6: return "Sexta-feira";
+            case 7: return "Sábado";
+            default: return "Número inválido. Digite um valor entre 1 e 7.";
+        }
+    }
+}
+
+4----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite a venda média mensal do produto: ");
+        int vendaMedia = int.Parse(Console.ReadLine());
+
+        Console.Write("Digite o preço atual do produto: R$ ");
+        double precoAtual = double.Parse(Console.ReadLine());
+
+        double precoReajustado = CalcularReajuste(vendaMedia, precoAtual);
+        Console.WriteLine($"O novo preço do produto é: R$ {precoReajustado:F2}");
+
+        Console.Write("Digite sua altura (em metros): ");
+        double altura = double.Parse(Console.ReadLine());
+
+        Console.Write("Digite seu sexo (M para masculino, F para feminino): ");
+        char sexo = char.ToUpper(Console.ReadKey().KeyChar);
+        Console.WriteLine();
+
+        double pesoIdeal = CalcularPesoIdeal(altura, sexo);
+        Console.WriteLine($"Seu peso ideal é: {pesoIdeal:F2} kg");
+
+        Console.Write("Digite um número de 1 a 7 para saber o dia da semana: ");
+        int numeroDia = int.Parse(Console.ReadLine());
+        Console.WriteLine($"O dia correspondente é: {ObterDiaSemana(numeroDia)}");
+
+        Console.Write("Digite o número de horas trabalhadas no mês: ");
+        double horasTrabalhadas = double.Parse(Console.ReadLine());
+
+        Console.Write("Digite o salário por hora: R$ ");
+        double salarioPorHora = double.Parse(Console.ReadLine());
+
+        double salarioTotal = CalcularSalarioTotal(horasTrabalhadas, salarioPorHora);
+        Console.WriteLine($"O salário total do funcionário é: R$ {salarioTotal:F2}");
+    }
+
+    static double CalcularReajuste(int vendaMedia, double precoAtual)
+    {
+        if (vendaMedia < 500 && precoAtual < 30.00)
+        {
+            return precoAtual * 1.10; 
+        }
+        else if (vendaMedia >= 500 && precoAtual >= 30.00)
+        {
+            return precoAtual * 0.80; 
+        }
+        return precoAtual; 
+    }
+
+    static double CalcularPesoIdeal(double altura, char sexo)
+    {
+        if (sexo == 'M')
+        {
+            return (72.7 * altura) - 58;
+        }
+        else if (sexo == 'F')
+        {
+            return (62.1 * altura) - 44.7;
+        }
+        else
+        {
+            Console.WriteLine("Sexo inválido!");
+            return 0;
+        }
+    }
+
+    static string ObterDiaSemana(int numero)
+    {
+        switch (numero)
+        {
+            case 1: return "Domingo";
+            case 2: return "Segunda-feira";
+            case 3: return "Terça-feira";
+            case 4: return "Quarta-feira";
+            case 5: return "Quinta-feira";
+            case 6: return "Sexta-feira";
+            case 7: return "Sábado";
+            default: return "Número inválido. Digite um valor entre 1 e 7.";
+        }
+    }
+
+    static double CalcularSalarioTotal(double horasTrabalhadas, double salarioPorHora)
+    {
+        const int horasSemanais = 40;
+        const int semanasNoMes = 4;
+        double horasNormais = horasSemanais * semanasNoMes;
+        double horasExtras = Math.Max(0, horasTrabalhadas - horasNormais);
+        double salarioBase = horasNormais * salarioPorHora;
+        double salarioExtra = horasExtras * (salarioPorHora * 1.5);
+        return salarioBase + salarioExtra;
+    }
+}
+
+5----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Responda com 'Sim' ou 'Não'.");
+
+        
+        Console.Write("É mamífero? ");
+        string resposta = Console.ReadLine().Trim().ToLower();
+
+        if (resposta == "sim")
+        {
+            
+            Console.Write("É quadrúpede? ");
+            resposta = Console.ReadLine().Trim().ToLower();
+
+            if (resposta == "sim")
+            {
+                
+                Console.Write("É carnívoro? ");
+                resposta = Console.ReadLine().Trim().ToLower();
+                
+                if (resposta == "sim")
+                    Console.WriteLine("O animal escolhido foi o leão.");
+                else
+                    Console.WriteLine("O animal escolhido foi o cavalo.");
+            }
+            else
+            {
+                Console.Write("É bípede? ");
+                resposta = Console.ReadLine().Trim().ToLower();
+
+                if (resposta == "sim")
+                {
+                    
+                    Console.Write("É frutífero? ");
+                    resposta = Console.ReadLine().Trim().ToLower();
+
+                    if (resposta == "sim")
+                        Console.WriteLine("O animal escolhido foi o macaco.");
+                    else
+                        Console.WriteLine("O animal escolhido foi o homem.");
+                }
+                else
+                {
+                    Console.WriteLine("O animal escolhido foi a baleia.");
+                }
+            }
+        }
+        else
+        {
+            
+            Console.Write("É uma ave que não voa? ");
+            resposta = Console.ReadLine().Trim().ToLower();
+
+            if (resposta == "sim")
+            {
+                
+                Console.Write("É tropical? ");
+                resposta = Console.ReadLine().Trim().ToLower();
+
+                if (resposta == "sim")
+                    Console.WriteLine("O animal escolhido foi o avestruz.");
+                else
+                    Console.WriteLine("O animal escolhido foi o pinguim.");
+            }
+            else
+            {
+                
+                Console.Write("É nadadora? ");
+                resposta = Console.ReadLine().Trim().ToLower();
+
+                if (resposta == "sim")
+                    Console.WriteLine("O animal escolhido foi o pato.");
+                else
+                    Console.WriteLine("O animal escolhido foi a águia.");
+            }
+        }
+    }
+}
+
+6----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        double S = 0;
+        for (int i = 1, j = 1; i <= 50; i++, j += 2)
+        {
+            S += (double)j / i;
+        }
+        
+        Console.WriteLine($"O valor de S é: {S:F2}");
+    }
+}
+
+7----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        int[] gabarito = new int[5];
+        int[] aposta = new int[10];
+
+        Console.WriteLine("Digite os 5 números do gabarito da LOTO:");
+        for (int i = 0; i < 5; i++)
+        {
+            gabarito[i] = int.Parse(Console.ReadLine());
+        }
+
+        Console.WriteLine("Digite os 10 números da aposta:");
+        for (int i = 0; i < 10; i++)
+        {
+            aposta[i] = int.Parse(Console.ReadLine());
+        }
+
+        int acertos = aposta.Count(num => gabarito.Contains(num));
+        Console.WriteLine($"O apostador fez {acertos} pontos.");
+    }
+}
+
+8----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        int[] D = new int[20];
+
+        Console.WriteLine("Digite os 20 elementos do vetor:");
+        for (int i = 0; i < 20; i++)
+        {
+            D[i] = int.Parse(Console.ReadLine());
+        }
+
+        Console.Write("Digite o valor de N: ");
+        int N = int.Parse(Console.ReadLine());
+
+        var compactado = D.Where(x => x > N).ToArray();
+
+        Console.WriteLine("Vetor compactado (elementos maiores que N):");
+        Console.WriteLine(string.Join(" ", compactado));
+    }
+}
+
+9----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Criando o vetor para armazenar as notas dos juízes
+        double[] notas = new double[6];
+        
+        // Lendo as 6 notas
+        for (int i = 0; i < 6; i++)
+        {
+            while (true)
+            {
+                Console.Write($"Digite a nota do juiz {i + 1} (0 a 10): ");
+                if (double.TryParse(Console.ReadLine(), out notas[i]) && notas[i] >= 0 && notas[i] <= 10)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Nota inválida! Digite um valor entre 0 e 10.");
+                }
+            }
+        }
+
+        // Ordenando as notas
+        Array.Sort(notas);
+
+        // Excluindo a menor e a maior nota
+        double notaFinal = 0;
+        for (int i = 1; i < 5; i++) // Pula a primeira (menor) e a última (maior) nota
+        {
+            notaFinal += notas[i];
+        }
+
+        // Exibindo a nota final
+        Console.WriteLine($"A nota final do atleta é: {notaFinal:F2}");
+    }
+}
+
+10----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[,] A = new int[4, 4];
+        Console.WriteLine("Digite os elementos da matriz 4x4:");
+        
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                A[i, j] = int.Parse(Console.ReadLine());
+            }
+        }
+
+        int somaA = A[0,0] + A[0,1] + A[1,0];
+        int somaB = A[2,2] + A[2,3] + A[3,2] + A[3,3];
+        int somaC = 0, somaD = 0;
+
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j <= i; j++)
+            {
+                somaC += A[i, j];
+            }
+            for (int j = i; j < 4; j++)
+            {
+                somaD += A[i, j];
+            }
+        }
+
+        Console.WriteLine($"Soma da área (a): {somaA}");
+        Console.WriteLine($"Soma da área (b): {somaB}");
+        Console.WriteLine($"Soma da área (c): {somaC}");
+        Console.WriteLine($"Soma da área (d): {somaD}");
+    }
+}

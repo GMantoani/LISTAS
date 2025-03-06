@@ -1,0 +1,1011 @@
+1----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Por favor, insira um valor inteiro entre 1 e 1000:");
+        if (int.TryParse(Console.ReadLine(), out int X) && X >= 1 && X <= 1000)
+        {
+            Console.WriteLine($"Números ímpares de 1 até {X}:");
+            for (int i = 1; i <= X; i++)
+            {
+                if (i % 2 != 0)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Valor invalido. Insira um numero inteiro entre 1 e 1000.");
+        }
+    }
+}
+
+2----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Primeiro valor inteiro:");
+        int X = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Segundo valor inteiro:");
+        int Y = int.Parse(Console.ReadLine());
+
+        if (X > Y)
+        {
+            int temp = X;
+            X = Y;
+            Y = temp;
+        }
+
+        int soma = 0;
+
+        for (int i = X + 1; i < Y; i++)
+        {
+            if (i % 2 != 0)
+            {
+                soma += i;
+            }
+        }
+
+        Console.WriteLine($"A soma dos valores ímpares entre {X} e {Y} é: {soma}");
+    }
+}
+
+3----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Digite o número de casos de teste:");
+        int N = int.Parse(Console.ReadLine());
+        int inCount = 0;
+        int outCount = 0;
+
+        for (int i = 0; i < N; i++)
+        {
+            Console.WriteLine($"Digite o número {i + 1}:");
+            int X = int.Parse(Console.ReadLine());
+            if (X >= 10 && X <= 20)
+            {
+                inCount++;
+            }
+            else
+            {
+                outCount++;
+            }
+        }
+
+        Console.WriteLine($"{inCount} in");
+        Console.WriteLine($"{outCount} out");
+    }
+}
+
+4----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Por favor, insira um número: ");
+        int N = int.Parse(Console.ReadLine());
+
+        for (int i = 2; i <= N; i += 2)
+        {
+            Console.WriteLine($"{i}^2 = {i * i}");
+        }
+    }
+}
+
+5----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite o número de casos de teste: ");
+        int N = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < N; i++)
+        {
+            Console.Write("Digite um número: ");
+            int X = int.Parse(Console.ReadLine());
+
+            if (X == 0)
+            {
+                Console.WriteLine("NULL");
+            }
+            else
+            {
+                string paridade = (X % 2 == 0) ? "EVEN" : "ODD";
+                string sinal = (X > 0) ? "POSITIVE" : "NEGATIVE";
+                Console.WriteLine($"{paridade} {sinal}");
+            }
+        }
+    }
+}
+
+6----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite um número N: ");
+        if (int.TryParse(Console.ReadLine(), out int N))
+        {
+            for (int i = 1; i <= 10000; i++)
+            {
+                if (i % N == 2)
+                {
+                    Console.WriteLine(i);
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Entrada inválida. Por favor, digite um número inteiro.");
+        }
+    }
+}
+
+7----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Globalization;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite o numero de casos de teste: ");
+        if (int.TryParse(Console.ReadLine(), out int N))
+        {
+            for (int i = 0; i < N; i++)
+            {
+                Console.Write("Digite três numeros separados por espaço: ");
+                string[] valores = Console.ReadLine().Split(' ');
+
+                if (valores.Length == 3 &&
+                    double.TryParse(valores[0], NumberStyles.Float, CultureInfo.InvariantCulture, out double num1) &&
+                    double.TryParse(valores[1], NumberStyles.Float, CultureInfo.InvariantCulture, out double num2) &&
+                    double.TryParse(valores[2], NumberStyles.Float, CultureInfo.InvariantCulture, out double num3))
+                {
+                    double mediaPonderada = (num1 * 2 + num2 * 3 + num3 * 5) / 10;
+                    Console.WriteLine($"Média Ponderada: {mediaPonderada:F1}", CultureInfo.InvariantCulture);
+                }
+                else
+                {
+                    Console.WriteLine("Entrada invalida. Digite três numeros validos.");
+                }
+            }
+        }
+        else
+        {
+            Console.WriteLine("Entrada inválida. Digite um numero inteiro.");
+        }
+    }
+}
+
+8----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int maxValue = int.MinValue;
+        int maxPosition = -1;
+
+        Console.WriteLine("Digite 100 numeros:");
+
+        for (int i = 1; i <= 100; i++)
+        {
+            if (int.TryParse(Console.ReadLine(), out int value))
+            {
+                if (value > maxValue)
+                {
+                    maxValue = value;
+                    maxPosition = i;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Entrada invalida. Digite um numero inteiro.");
+                i--; // Decrementa o contador para garantir que 100 entradas válidas sejam lidas
+            }
+        }
+
+        Console.WriteLine($"Maior valor: {maxValue}");
+        Console.WriteLine($"Posição: {maxPosition}");
+    }
+}
+
+9----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Digite o número de casos de teste: ");
+        if (!int.TryParse(Console.ReadLine(), out int N) || N <= 0)
+        {
+            Console.WriteLine("Entrada inválida. Digite um número inteiro positivo.");
+            return;
+        }
+
+        int coelhos = 0, ratos = 0, sapos = 0, total = 0;
+
+        for (int i = 0; i < N; i++)
+        {
+            Console.Write("Digite a quantidade e o tipo de cobaia (C, R, S): ");
+            string[] entrada = Console.ReadLine().Split();
+
+            if (entrada.Length != 2 || !int.TryParse(entrada[0], out int quantidade) || !char.TryParse(entrada[1], out char tipo))
+            {
+                Console.WriteLine("Entrada inválida. Digite a quantidade e o tipo de cobaia corretamente.");
+                i--;
+                continue;
+            }
+
+            switch (char.ToUpper(tipo))
+            {
+                case 'C':
+                    coelhos += quantidade;
+                    break;
+                case 'R':
+                    ratos += quantidade;
+                    break;
+                case 'S':
+                    sapos += quantidade;
+                    break;
+                default:
+                    Console.WriteLine("Tipo inválido. Use 'C' para coelhos, 'R' para ratos e 'S' para sapos.");
+                    i--;
+                    continue;
+            }
+
+            total += quantidade;
+        }
+
+        if (total == 0)
+        {
+            Console.WriteLine("Nenhuma cobaia foi registrada.");
+            return;
+        }
+
+        double percCoelhos = (coelhos / (double)total) * 100;
+        double percRatos = (ratos / (double)total) * 100;
+        double percSapos = (sapos / (double)total) * 100;
+
+        Console.WriteLine($"Total: {total} cobaias");
+        Console.WriteLine($"Total de coelhos: {coelhos}");
+        Console.WriteLine($"Total de ratos: {ratos}");
+        Console.WriteLine($"Total de sapos: {sapos}");
+        Console.WriteLine($"Percentual de coelhos: {percCoelhos:F2} %");
+        Console.WriteLine($"Percentual de ratos: {percRatos:F2} %");
+        Console.WriteLine($"Percentual de sapos: {percSapos:F2} %");
+    }
+}
+
+10----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        for (int i = 1; i <= 9; i += 2)
+        {
+            for (int j = 7; j >= 5; j--)
+            {
+                Console.WriteLine($"I = {i}, J = {j}");
+            }
+        }
+    }
+}
+
+
+11----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Loop through odd values of I from 1 to 9
+        for (int I = 1; I <= 9; I += 2)
+        {
+            // Calculate the starting value of J
+            int J = 7 + (I - 1) * 2;
+
+            // Print the three values of J for each I
+            for (int k = 0; k < 3; k++)
+            {
+                Console.WriteLine($"I={I} J={J}");
+                J--; // Decrement J
+            }
+        }
+    }
+}
+
+12----------------------------------------------------------------------------------------------------------------------------------------------------
+
+﻿using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Read the number of pairs
+        int N;
+        if (!int.TryParse(Console.ReadLine(), out N) || N <= 0)
+        {
+            Console.WriteLine("Invalid number of pairs.");
+            return;
+        }
+
+        // Loop through each pair
+        for (int i = 0; i < N; i++)
+        {
+            // Read the pair of integers X and Y
+            string[] input = Console.ReadLine().Split();
+
+            // Check if we have exactly two inputs
+            if (input.Length != 2)
+            {
+                Console.WriteLine("Invalid input. Please enter two integers.");
+                continue; // Skip to the next iteration
+            }
+
+            int X, Y;
+
+            // Try to parse the integers
+            if (!int.TryParse(input[0], out X) || !int.TryParse(input[1], out Y))
+            {
+                Console.WriteLine("Invalid input. Please enter valid integers.");
+                continue; // Skip to the next iteration
+            }
+
+            // Check if Y is zero to avoid division by zero
+            if (Y == 0)
+            {
+                Console.WriteLine("divisao impossivel");
+            }
+            else
+            {
+                // Perform the division and format the output to one decimal place
+                double result = (double)X / Y;
+                Console.WriteLine($"{result:F1}");
+            }
+        }
+    }
+}
+
+13----------------------------------------------------------------------------------------------------------------------------------------------------
+
+﻿namespace _1132
+{
+    using System;
+
+    class Program
+    {
+        static void Main()
+        {
+            // Read the two integer numbers
+            string[] input = Console.ReadLine().Split();
+
+            // Check if we have exactly two inputs
+            if (input.Length != 2)
+            {
+                Console.WriteLine("Please enter exactly two integers.");
+                return; // Exit the program if input is invalid
+            }
+
+            int X, Y;
+
+            // Try to parse the integers
+            if (!int.TryParse(input[0], out X) || !int.TryParse(input[1], out Y))
+            {
+                Console.WriteLine("Invalid input. Please enter valid integers.");
+                return; // Exit the program if parsing fails
+            }
+
+            // Determine the range
+            int start = Math.Min(X, Y);
+            int end = Math.Max(X, Y);
+            int sum = 0;
+
+            // Calculate the sum of numbers not divisible by 13
+            for (int i = start; i <= end; i++)
+            {
+                if (i % 13 != 0)
+                {
+                    sum += i;
+                }
+            }
+
+            // Print the result
+            Console.WriteLine(sum);
+        }
+    }
+}
+
+14----------------------------------------------------------------------------------------------------------------------------------------------------
+
+﻿namespace _1133
+{
+    using System;
+
+    class Program
+    {
+        static void Main()
+        {
+            // Read the two integer numbers
+            string[] input = Console.ReadLine().Split();
+
+            // Check if we have exactly two inputs
+            if (input.Length != 2)
+            {
+                Console.WriteLine("Please enter exactly two positive integers.");
+                return; // Exit the program if input is invalid
+            }
+
+            int X, Y;
+
+            // Try to parse the integers
+            if (!int.TryParse(input[0], out X) || !int.TryParse(input[1], out Y) || X <= 0 || Y <= 0)
+            {
+                Console.WriteLine("Invalid input. Please enter two positive integers.");
+                return; // Exit the program if parsing fails
+            }
+
+            // Determine the range
+            int start = Math.Min(X, Y);
+            int end = Math.Max(X, Y);
+
+            // Create a list to store valid numbers
+            var validNumbers = new List<int>();
+
+            // Check each number in the range
+            for (int i = start; i <= end; i++)
+            {
+                if (i % 5 == 2 || i % 5 == 3)
+                {
+                    validNumbers.Add(i);
+                }
+            }
+
+            // Print the valid numbers in ascending order
+            foreach (var number in validNumbers)
+            {
+                Console.WriteLine(number);
+            }
+        }
+    }
+}
+
+15----------------------------------------------------------------------------------------------------------------------------------------------------
+
+﻿namespace _1142
+{
+    using System;
+
+    class Program
+    {
+        static void Main()
+        {
+            // Read the integer N
+            int N = int.Parse(Console.ReadLine());
+
+            // Initialize a counter for the numbers
+            int number = 1;
+
+            // Loop N times to print the required output
+            for (int i = 0; i < N; i++)
+            {
+                // Print three consecutive numbers followed by "PUM"
+                Console.WriteLine($"{number} {number + 1} {number + 2} PUM");
+                // Increment the number by 4 for the next line
+                number += 4;
+            }
+        }
+    }
+}
+
+16----------------------------------------------------------------------------------------------------------------------------------------------------
+
+﻿using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Read the integer N
+        int N = int.Parse(Console.ReadLine());
+
+        // Check if N is within the specified range
+        if (N <= 1 || N >= 1000)
+        {
+            Console.WriteLine("N must be between 1 and 1000.");
+            return;
+        }
+
+        // Loop from 1 to N to print the required output
+        for (int i = 1; i <= N; i++)
+        {
+            // Calculate square and cube
+            int square = i * i;
+            int cube = i * i * i;
+
+            // Print the output in the specified format
+            Console.WriteLine($"{i} {square} {cube}");
+        }
+    }
+}
+
+17----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Read the integer N
+        int N = int.Parse(Console.ReadLine());
+
+        // Check if N is within the specified range
+        if (N <= 1 || N >= 1000)
+        {
+            Console.WriteLine("N must be between 1 and 1000.");
+            return;
+        }
+
+        // Loop through each group from 1 to N
+        for (int i = 1; i <= N; i++)
+        {
+            // For each group, print 2 lines
+            for (int j = 1; j <= 2; j++)
+            {
+                // Calculate the first number and its square
+                int firstNumber = i;
+                int square = firstNumber * firstNumber;
+
+                // Calculate the second number and its cube
+                int secondNumber = firstNumber + j;
+                int cube = secondNumber * secondNumber * secondNumber;
+
+                // Print the output in the specified format
+                Console.WriteLine($"{firstNumber} {square} {cube}");
+            }
+        }
+    }
+}
+
+18----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Read the integer N
+        int N = int.Parse(Console.ReadLine());
+
+        // Check if N is within the specified range
+        if (N <= 0 || N >= 46)
+        {
+            Console.WriteLine("N must be between 1 and 45.");
+            return;
+        }
+
+        // Initialize the first two Fibonacci numbers
+        int[] fibonacci = new int[N];
+
+        // Handle the first two cases separately
+        if (N >= 1) fibonacci[0] = 0; // First Fibonacci number
+        if (N >= 2) fibonacci[1] = 1; // Second Fibonacci number
+
+        // Calculate the Fibonacci sequence
+        for (int i = 2; i < N; i++)
+        {
+            fibonacci[i] = fibonacci[i - 1] + fibonacci[i - 2];
+        }
+
+        // Print the Fibonacci numbers on the same line
+        Console.WriteLine(string.Join(" ", fibonacci));
+    }
+}
+
+19----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Read the integer N
+        int N = int.Parse(Console.ReadLine());
+
+        // Check if N is within the specified range
+        if (N <= 0 || N >= 13)
+        {
+            Console.WriteLine("N must be between 1 and 12.");
+            return;
+        }
+
+        // Initialize the factorial result
+        int factorial = 1;
+
+        // Calculate the factorial
+        for (int i = N; i > 0; i--)
+        {
+            factorial *= i;
+        }
+
+        // Print the result
+        Console.WriteLine(factorial);
+    }
+}
+
+20----------------------------------------------------------------------------------------------------------------------------------------------------
+
+﻿using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Initialize the sum S
+        double S = 0.0;
+
+        // Calculate the sum S
+        for (int i = 1; i <= 100; i++)
+        {
+            S += 1.0 / i; // Add the reciprocal of i to S
+        }
+
+        // Print the result formatted to two decimal places
+        Console.WriteLine($"{S:F2}");
+    }
+}
+
+21----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program{
+
+    static void Main(){
+
+        double S = 0.0;
+        
+        for (int i = 1, j = 2; i <= 39; i += 2, j *= 2)
+        {
+            S += (double)i / j;
+        }
+
+        Console.WriteLine("{0:F2}", S);
+    }
+}
+
+22----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program{
+
+    static void Main(){
+
+        
+        int N = int.Parse(Console.ReadLine());
+
+        
+        for (int i = 1; i <= N; i++)
+        {
+            if (N % i == 0)             
+{
+                Console.WriteLine(i);
+            }
+        }
+    }
+}
+
+23----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program{
+
+    static void Main(){
+
+        int N = int.Parse(Console.ReadLine());
+
+        for (int i = 0; i < N; i++)
+        {
+            string[] input = Console.ReadLine().Split();
+            int X = int.Parse(input[0]);
+            int Y = int.Parse(input[1]);
+
+            
+            if (X > Y)
+            {
+                int temp = X;
+                X = Y;
+                Y = temp;
+            }
+
+            int sum = 0;
+            
+            
+            for (int j = X + 1; j < Y; j++)
+            {
+                if (j % 2 != 0) 
+                {
+                    sum += j;
+                }
+            }
+
+            Console.WriteLine(sum);
+        }
+    }
+}
+
+24----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        while (true)
+        {
+            string[] input = Console.ReadLine().Split();
+            int M = int.Parse(input[0]);
+            int N = int.Parse(input[1]);
+
+            
+            if (M <= 0 || N <= 0)
+                break;
+
+            
+            if (M > N)
+            {
+                int temp = M;
+                M = N;
+                N = temp;
+            }
+
+            int sum = 0;
+            string sequence = "";
+
+            
+            for (int i = M; i <= N; i++)
+            {
+                sequence += i + " ";
+                sum += i;
+            }
+
+           
+            Console.WriteLine($"{sequence}Sum={sum}");
+        }
+    }
+}
+
+25----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string[] input = Console.ReadLine().Split();
+        int X = int.Parse(input[0]); 
+        int Y = int.Parse(input[1]); 
+
+        for (int i = 1; i <= Y; i++)
+        {
+            Console.Write(i);
+
+            
+            if (i % X == 0 || i == Y)
+                Console.WriteLine();
+            else
+                Console.Write(" ");
+        }
+    }
+}
+
+26----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        int[] input = Console.ReadLine().Split().Select(int.Parse).ToArray();
+        int A = input[0]; 
+        int N = input.Skip(1).First(x => x > 0); 
+
+        int sum = 0;
+        for (int i = 0; i < N; i++)
+        {
+            sum += A + i;
+        }
+
+        Console.WriteLine(sum);
+    }
+}
+
+27----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int X = int.Parse(Console.ReadLine()); 
+        int Z;
+
+        
+        do
+        {
+            Z = int.Parse(Console.ReadLine());
+        } while (Z <= X);
+
+        int sum = 0, count = 0, current = X;
+
+        
+        while (sum <= Z)
+        {
+            sum += current;
+            current++;
+            count++;
+        }
+
+        Console.WriteLine(count);
+    }
+}
+
+28----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int N = int.Parse(Console.ReadLine()); 
+
+        for (int i = 0; i < N; i++)
+        {
+            string[] valores = Console.ReadLine().Split();
+            int X = int.Parse(valores[0]);
+            int Y = int.Parse(valores[1]);
+
+            int soma = 0, cont = 0;
+
+            
+            if (X % 2 == 0)
+                X++;
+
+            
+            while (cont < Y)
+            {
+                soma += X;
+                X += 2;
+                cont++;
+            }
+
+            Console.WriteLine(soma);
+        }
+    }
+}
+
+29----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+using System.Globalization;
+
+class Program
+{
+    static void Main()
+    {
+        int T = int.Parse(Console.ReadLine()); 
+
+        for (int i = 0; i < T; i++)
+        {
+            string[] valores = Console.ReadLine().Split();
+            int PA = int.Parse(valores[0]);  
+            int PB = int.Parse(valores[1]);  
+            double G1 = double.Parse(valores[2], CultureInfo.InvariantCulture); 
+            double G2 = double.Parse(valores[3], CultureInfo.InvariantCulture); 
+
+            int anos = 0;
+
+            while (PA <= PB)
+            {
+                PA += (int)(PA * (G1 / 100));
+                PB += (int)(PB * (G2 / 100));
+                anos++;
+
+                if (anos > 100)
+                {
+                    Console.WriteLine("Mais de 1 seculo.");
+                    break;
+                }
+            }
+
+            if (anos <= 100)
+            {
+                Console.WriteLine($"{anos} anos.");
+            }
+        }
+    }
+}
+
+30----------------------------------------------------------------------------------------------------------------------------------------------------
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int N = int.Parse(Console.ReadLine()); 
+        
+        for (int i = 0; i < N; i++)
+        {
+            int X = int.Parse(Console.ReadLine());
+
+            if (EhPrimo(X))
+                Console.WriteLine($"{X} eh primo");
+            else
+                Console.WriteLine($"{X} nao eh primo");
+        }
+    }
+
+    static bool EhPrimo(int num)
+    {
+        if (num < 2) return false;
+        if (num == 2) return true;
+        if (num % 2 == 0) return false;
+
+        for (int i = 3; i * i <= num; i += 2)
+        {
+            if (num % i == 0) return false;
+        }
+        return true;
+    }
+}
+
